@@ -1,0 +1,4 @@
+routes:
+  /all:
+    uses: history
+    as: all
