@@ -1,4 +1,4 @@
 routes:
-  /all:
-    uses: history
-    as: all
+  get@/:
+    uses: index
+    as: history.index
