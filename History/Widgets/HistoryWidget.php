@@ -5,6 +5,7 @@ namespace Statamic\Addons\History\Widgets;
 use Statamic\API\User;
 use Statamic\API\Config;
 use Statamic\Extend\Widget;
+use Statamic\Addons\History\Models\Event;
 
 class HistoryWidget extends Widget
 {
@@ -27,7 +28,7 @@ class HistoryWidget extends Widget
     public function history()
     {
         // sort by newest changes
-        $events = Event::orderBy('created_at', 'desc');
+        $events = Event::latest();
 
         if ($this->get('current_user', false)) {
             $events = $events->whereUser(User::getCurrent());
@@ -37,7 +38,7 @@ class HistoryWidget extends Widget
 
         if (!$this->get('all_events', true)) {
             $events = $events->unique(function ($event) {
-                return $events->content_id;
+                return $event->content_id;
             });
         }
 
