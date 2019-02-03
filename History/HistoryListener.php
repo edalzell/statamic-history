@@ -47,7 +47,7 @@ class HistoryListener extends Listener
         if ($user && $user->isSuper()) {
             $nav->addTo(
                 'tools',
-                Nav::item('History')->route('all')->icon('back-in-time')
+                Nav::item('History')->route('history.index')->icon('back-in-time')
             );
         }
     }
