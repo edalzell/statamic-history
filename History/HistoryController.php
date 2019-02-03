@@ -13,15 +13,15 @@ class HistoryController extends Controller
      *
      * @return mixed
      */
-    public function history()
+    public function index()
     {
         $format = $this->getConfig('date_format', Config::get('cp.date_format'));
 
         // limiting to 100 until I implement https://github.com/edalzell/statamic-history/issues/1
-        $events = Event::orderBy('created_at', 'desc')
+        $events = Event::latest()
             ->limit(100)
             ->get();
 
-        return $this->view('history', compact('events', 'format'));
+        return $this->view('index', compact('events', 'format'));
     }
 }
