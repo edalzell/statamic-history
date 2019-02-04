@@ -25,8 +25,8 @@ widgets:
     all_events: false
 ```
 
-`title` - optional, defaults to `"Most Recent Changes"`
-`limit` - optional, defaults to `5`
-`date_format` - optional, defaults to your CP date format
-`current_user` optional, defaults to false. If `true` only shows **your** changes
-`all_events` - optional, defaults to `true`. If false, only the latest change for each content type are shown. For example, if someone made 5 changes to a page, only the latest would be shown.
+* `title` - optional, defaults to `"Most Recent Changes"`
+* `limit` - optional, defaults to `5`
+* `date_format` - optional, defaults to your CP date format
+* `current_user` optional, defaults to false. If `true` only shows **your** changes
+* `all_events` - optional, defaults to `true`. If false, only the latest change for each content type are shown. For example, if someone made 5 changes to a page, only the latest would be shown.
