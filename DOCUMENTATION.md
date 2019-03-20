@@ -11,7 +11,28 @@
 
 When any Global, Entry or Page is saved, the details are recorded.
 
-You can the history by adding one or more `history` widgets to your dashboard:
+## Tag
+
+You can display the last modified date for all content, regardless of content order (i.e. non-date collections)
+
+```
+{{ history :id="content_id" }}
+    <p>Last modified by {{ user :id="user_id" }}{{ first_name }}{{ /user }} on {{ last_modified }}</p>
+{{ /history }}
+```
+
+### Parameters
+
+`id` - id of the content
+
+### Variables
+
+`user_id` - id of the user that last updated the content
+`last_modified` - timestamp of the last modification
+
+## Widgets
+
+You can show the history by adding one or more `history` widgets to your dashboard:
 
 ```
 widgets:
