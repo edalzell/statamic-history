@@ -9,11 +9,24 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     /**
-     * The attributes that aren't mass assignable.
+     * The connection name for the model.
      *
-     * @var array
+     * @var string
      */
+    protected $connection = 'sqlite';
+
     protected $guarded = ['id', 'created_at', 'updated_at'];
+
+    protected $dates = ['created_at', 'updated_at', 'last_modified'];
+
+    protected $hidden = ['created_at', 'updated_at'];
+
+    protected $appends = ['last_modified'];
+
+    public static function findByContentId($id)
+    {
+        return self::where('content_id', $id)->orderBy('created_at')->get();
+    }
 
     /**
      * @return \Statamic\Data\Users\User
@@ -71,5 +84,10 @@ class Event extends Model
     public function scopeWhereUser($query, $user)
     {
         return $query->where('user_id', $user->id());
+    }
+
+    public function scopeWhereContentId($query, $id)
+    {
+        return $query->where('content_id', $id)->orderBy('created_at');
     }
 }

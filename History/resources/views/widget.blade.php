@@ -1,6 +1,6 @@
 <div class="card flush">
     <div class="head">
-        <h1>{{ $title }}</h1>
+        <h1>{{ $title or 'Most Recent Changes' }}</h1>
     </div>
     <div class="card-body pad-16">
         <table class="dossier">
