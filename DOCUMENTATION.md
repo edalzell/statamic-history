@@ -23,12 +23,12 @@ You can display the last modified date for all content, regardless of content or
 
 ### Parameters
 
-`id` - id of the content
+* `id` - id of the content
 
 ### Variables
 
-`user_id` - id of the user that last updated the content
-`last_modified` - timestamp of the last modification
+* `user_id` - id of the user that last updated the content
+* `last_modified` - timestamp of the last modification
 
 ## Widgets
 
