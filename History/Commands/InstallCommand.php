@@ -38,7 +38,7 @@ class InstallCommand extends Command
         app('composer')->dumpAutoloads();
 
         // run the migration(s)
-        Artisan::call('migrate');
+        Artisan::call('migrate', ['--database' => 'sqlite']);
     }
 
     private function copyMigration()
