@@ -13,9 +13,9 @@ When any Global, Entry, or Page is saved, the details are recorded.
 
 ## Tags
 
-By default, the {{ history }} tag will output all events that have been recorded for the Global, Entry, or Page. This can be really useful for when you need to output a log of changes made to a particular piece of content.
+By default, the {{ history }} tag will output all events that have been recorded for a Global, Entry, or Page. This can be really useful for when you need to output a log of changes made to a particular piece of content.
 
-You can display the last modified date for all content, regardless of content order (i.e. non-date collections)
+You can display the last modified date for all content, regardless of content order (i.e. non-date collections).
 
 ```
 <ul>
@@ -39,7 +39,7 @@ Let's say you want to output the last time a particular page was updated. It's a
 
 ### Earliest
 
-We're sure why this would be useful, but hey, whatever. We've given you the ability to use it anyway.
+We're not sure why this would be useful, but hey, whatever. We've given you the ability to use it anyway. As you might have guessed, it lets you output the first time a piece of content was edited after being saved.
 
 ```
 {{ history:earliest id="content_id" }}
@@ -55,7 +55,7 @@ It's worth noting that you can set this up in two different ways.
 
 #### For the current page
 
-If you want to show when the latest edit to the page you're editing was, you can 'bind' the id to the context. All this means is that instead of needing to manually edit the id, or set up a custom field, you can write `:id="id"` and it'll read the id of the current page. It'll look like this:
+If you want to show when the last edit to the page you're editing was, you can 'bind' the id to the context. All this means is that instead of needing to manually edit the id, or set up a custom field, you can write `:id="id"` and it'll read the id of the current page. It'll look like this:
 
 ```
 {{ history:latest :id="id" }}
