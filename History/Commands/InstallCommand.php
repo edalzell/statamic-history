@@ -35,14 +35,17 @@ class InstallCommand extends Command
         $this->initializeDB();
 
         // load the migration
+        $this->info('Loading the migration');
         app('composer')->dumpAutoloads();
 
         // run the migration(s)
+        $this->info('Running the migration');
         Artisan::call('migrate', ['--database' => 'sqlite']);
     }
 
     private function copyMigration()
     {
+        $this->info('Copying the migration');
         $migration = date('Y_m_d_His') . '_create_events_table.php';
         // copy the migration(s)
         File::copy(
@@ -59,10 +62,14 @@ class InstallCommand extends Command
             ),
             true
         );
+
+        $this->info('Migration copied');
     }
 
     private function initializeDB()
     {
+        $this->info('Initializing the DB');
+
         // copy the db
         File::copy(
             Path::assemble(
@@ -72,10 +79,12 @@ class InstallCommand extends Command
                 'database.sqlite'
             ),
             Path::assemble(
-                site_path('storage'),
+                site_storage_path(),
                 'database.sqlite'
             ),
             true
         );
+
+        $this->info('DB initialized');
     }
 }
