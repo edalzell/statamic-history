@@ -13,7 +13,7 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
+        Schema::connection('sqlite')->create('events', function (Blueprint $table) {
             $table->increments('id');
             $table->uuid('user_id');
             $table->string('action');
